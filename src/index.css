@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --mm-bg-primary: #070B14;
+  --mm-bg-secondary: #0B1120;
+  --mm-surface: #0F1629;
+  --mm-surface-hover: #141D35;
+  --mm-surface-elevated: #162038;
+  --mm-primary: #7C3AED;
+  --mm-primary-fg: #FFFFFF;
+  --mm-secondary: #EC4899;
+  --mm-secondary-fg: #FFFFFF;
+  --mm-accent: #10B981;
+  --mm-text-primary: #F8FAFC;
+  --mm-text-secondary: #94A3B8;
+  --mm-border: #1E293B;
+  --mm-income: #10B981;
+  --mm-expense: #EF4444;
+  --mm-warning: #F59E0B;
+  --mm-success: #10B981;
+  --mm-chart-grid: rgba(148, 163, 184, 0.10);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-mm-bg: var(--mm-bg-primary);
+  --color-mm-bg2: var(--mm-bg-secondary);
+  --color-mm-surface: var(--mm-surface);
+  --color-mm-hover: var(--mm-surface-hover);
+  --color-mm-elevated: var(--mm-surface-elevated);
+  --color-mm-brand: var(--mm-primary);
+  --color-mm-brand-fg: var(--mm-primary-fg);
+  --color-mm-brand2: var(--mm-secondary);
+  --color-mm-accent: var(--mm-accent);
+  --color-mm-text: var(--mm-text-primary);
+  --color-mm-muted: var(--mm-text-secondary);
+  --color-mm-border: var(--mm-border);
+  --color-mm-income: var(--mm-income);
+  --color-mm-expense: var(--mm-expense);
+  --color-mm-warning: var(--mm-warning);
+  --color-mm-success: var(--mm-success);
+}
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--mm-bg-primary);
+    color: var(--mm-text-primary);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--mm-bg-primary);
+    color: var(--mm-text-primary);
+    overflow-x: hidden;
+  }
+
+  select option {
+    background-color: var(--mm-surface);
+    color: var(--mm-text-primary);
+  }
+}
+
+.mm-btn-primary {
+  background: linear-gradient(135deg, var(--mm-primary), var(--mm-secondary));
+  color: var(--mm-primary-fg);
+  transition: filter 150ms ease, transform 150ms ease, opacity 150ms ease;
+}
+
+.mm-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.mm-hero-surface {
+  background: linear-gradient(
+    135deg,
+    var(--mm-surface-elevated) 0%,
+    var(--mm-surface) 58%,
+    var(--mm-bg-secondary) 100%
+  );
+}
+
+.font-mono-num {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.28);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mm-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
